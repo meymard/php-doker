@@ -1,0 +1,2 @@
+bin_dir=`dirname $0`
+cd "$bin_dir/.." && docker-compose exec --user $USER web php -d memory_limit=512M ./bin/console $@
