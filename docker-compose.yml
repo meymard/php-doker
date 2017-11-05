@@ -9,7 +9,7 @@ web:
         - ./devis-factures:/devis-factures
         - ./php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
 db:
-    image: mariadb:10.1
+    image: mariadb
     ports:
         - "3307:3306"
     environment:

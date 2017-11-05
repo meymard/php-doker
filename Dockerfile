@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     xfonts-75dpi \
     zlib1g-dev
+    wkhtmltopdf
 
 RUN docker-php-ext-install pdo_mysql zip intl
 RUN docker-php-ext-configure pdo_mysql
@@ -28,10 +29,6 @@ RUN php -r "unlink('/tmp/composer-setup.php');"
 
 RUN curl -LsS https://symfony.com/installer -o /bin/symfony
 RUN chmod a+x /bin/symfony
-
-# configure xhtmltopdf
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb -O /tmp/wkhtmltox.deb
-RUN dpkg -i /tmp/wkhtmltox.deb
 
 # Configure Apache
 RUN groupadd meymard
