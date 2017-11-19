@@ -1,6 +1,6 @@
 
 web:
-    build: .
+    build: php7
     links:
         - db
     ports:
