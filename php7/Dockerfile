@@ -42,8 +42,8 @@ RUN echo 'date.timezone = "Europe/Paris"' > /usr/local/etc/php/conf.d/timezone.i
 RUN { \
             echo '<VirtualHost *:80>'; \
             echo '    ServerAdmin local@admin.fr'; \
-            echo '    DocumentRoot /devis-factures/api/web'; \
-            echo '    <Directory "/devis-factures/api/web">'; \
+            echo '    DocumentRoot /devis-factures/web'; \
+            echo '    <Directory "/devis-factures/web">'; \
             echo '        Options -Indexes'; \
             echo '        AllowOverride All'; \
             echo '        Require all granted'; \
@@ -67,4 +67,4 @@ RUN { \
 
 RUN mkdir /devis-factures
 
-WORKDIR /devis-factures/api
+WORKDIR /devis-factures

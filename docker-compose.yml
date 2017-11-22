@@ -6,7 +6,7 @@ web:
     ports:
         - "80:80"
     volumes:
-        - ./devis-factures:/devis-factures
+        - ./devis-factures/api:/devis-factures
         - ./php-custom.ini:/usr/local/etc/php/conf.d/php-custom.ini
 db:
     image: mariadb
@@ -15,3 +15,14 @@ db:
     environment:
         MYSQL_ROOT_PASSWORD: toor
         MYSQL_DATABASE: devis_factures
+
+reactjs:
+    build: node
+    volumes:
+        - ./devis-factures/api/front:/home/node
+        - ./node/entrypoint.sh:/tmp/entrypoint.sh
+    container_name: node-react
+    entrypoint: sh /tmp/entrypoint.sh
+    working_dir: /home/node
+    ports:
+        - 3000:3000
