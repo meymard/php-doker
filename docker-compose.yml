@@ -18,6 +18,8 @@ db:
 
 reactjs:
     build: node
+    links:
+        - web
     volumes:
         - ./devis-factures/api/front:/home/node
         - ./node/entrypoint.sh:/tmp/entrypoint.sh
